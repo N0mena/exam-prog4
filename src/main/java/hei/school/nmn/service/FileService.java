@@ -5,7 +5,6 @@ import hei.school.nmn.endpoint.event.model.SubmissionEmailRequested;
 import hei.school.nmn.entity.File;
 import hei.school.nmn.file.bucket.BucketComponent;
 import hei.school.nmn.repository.FileRepository;
-
 import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
@@ -35,7 +34,7 @@ public class FileService {
     fileWB.delete();
     tempFile.delete();
 
-    File submission = fileRepository.save(new File(UUID.randomUUID(),title, email, Instant.now()));
+    File submission = fileRepository.save(new File(UUID.randomUUID(), title, email, Instant.now()));
 
     var event = SubmissionEmailRequested.builder().email(email).bucketKey(title).build();
     eventProducer.accept(List.of(event));
