@@ -5,6 +5,4 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AllArgsConstructor
-public class FileController {
-
-}
+public class FileController {}
