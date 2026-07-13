@@ -4,11 +4,11 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.time.Instant;
+import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.UUID;
 
 @Entity
 @Table(name = "file")
@@ -16,14 +16,16 @@ import java.util.UUID;
 @Getter
 @Setter
 public class File {
-    @Id
-    @Column(name = "id", nullable = false)
-    private UUID id;
+  @Id
+  @Column(name = "id", nullable = false)
+  private UUID id;
 
-    @Column(name = "title")
-    private String title;
+  @Column(name = "title", nullable = false)
+  private String title;
 
-    @Column(name = "email")
-    private String email;
-    
+  @Column(name = "email", nullable = false)
+  private String email;
+
+  @Column(name = "created_at", nullable = false)
+  private Instant createdAt;
 }
