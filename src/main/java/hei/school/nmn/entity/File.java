@@ -28,4 +28,6 @@ public class File {
 
   @Column(name = "created_at", nullable = false)
   private Instant createdAt;
+
+  protected File() {}
 }

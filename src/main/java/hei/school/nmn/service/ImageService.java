@@ -1,7 +1,7 @@
 package hei.school.nmn.service;
 
-import hei.school.nmn.entity.File;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import lombok.AllArgsConstructor;
@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 @AllArgsConstructor
 public class ImageService {
 
-  public File convertIntoWhiteAndBlanc(MultipartFile file, String tempFilePath) throws IOException {
+  public java.io.File convertIntoWhiteAndBlanc(MultipartFile file, String tempFilePath) throws IOException {
     BufferedImage originalImage = ImageIO.read(file.getInputStream());
     if (originalImage == null) {
       throw new IllegalArgumentException("Invalid image file");
@@ -26,7 +26,7 @@ public class ImageService {
     graphics.drawImage(originalImage, 0, 0, null);
     graphics.dispose();
 
-    File grayscaleFile = new File(tempFilePath);
+    java.io.File grayscaleFile = new java.io.File(tempFilePath);
     ImageIO.write(grayscaleImage, "jpg", grayscaleFile);
 
     return grayscaleFile;
