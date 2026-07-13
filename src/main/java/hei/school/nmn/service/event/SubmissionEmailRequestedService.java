@@ -1,11 +1,8 @@
-package hei.school.nmn.service;
+package hei.school.nmn.service.event;
 
-import hei.school.nmn.repository.FileRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class FileService {
-
-}
+public class SubmissionEmailRequestedService {}
